@@ -1,0 +1,87 @@
+
+/* DEMO SPECIFIC CSS*/
+
+
+/* Canvas required*/
+#canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#canvas-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* UI STUFF*/
+
+:root {
+  font-family: sofia-pro, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, "Open Sans", Arial, sans-serif;
+
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+}
+
+body,
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  @media screen and (min-width: 480px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 22px;
+  }
+}
+.ui {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.ui-logo {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 1rem !important;
+  user-select: none;
+  text-transform: uppercase;
+}
+.ui-title {
+  font-family: thunder2, "Thunder2", thunder, sofia-pro, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, "Open Sans", Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: .05em;
+
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  max-width: 80% !important;
+
+  user-select: none;
+  text-align: center;
+  margin: 0 auto !important;
+
+  text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    font-size: 6rem;
+  }
+}
