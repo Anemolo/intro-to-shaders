@@ -14,9 +14,9 @@
 
 [![Sketches in the repo](./cover.jpg)](https://offscreencanvas.com/renders/demo-title)
 
-Sketch management setup for ThreeJS Made for "Intro to shaders" email course.
+Sketch management setup for ThreeJS Made for ["Intro to shaders" email course](https://offscreencanvas.com/courses/intro-to-shaders).
 
-[Course signup!](https://offscreencanvas.com/issues/demo-title)
+[Course signup!](https://offscreencanvas.com/courses/intro-to-shaders)
 
 If you are interested about learning or exploring shaders, 3d, or creative coding, check out my weekly newsletter. We've got new resources/demos/articles each week. 
 
