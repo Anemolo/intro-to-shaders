@@ -16,6 +16,10 @@
 
 Sketch management setup for ThreeJS Made for ["Intro to shaders" email course](https://offscreencanvas.com/courses/intro-to-shaders).
 
+In src/sketches there is one glsl file per lesson, this is where you code.
+
+And in src/lessons-final-sketches there is the final result of all the lessons for reference.
+
 [Course signup!](https://offscreencanvas.com/courses/intro-to-shaders)
 
 If you are interested about learning or exploring shaders, 3d, or creative coding, check out my weekly newsletter. We've got new resources/demos/articles each week. 
@@ -44,6 +48,7 @@ npm run dev
 | file | Description |
 | --- | --- |
 | sketches/*.glsl | Any file.glsl inside sketches is considered an sketch. Indexes are optional but recomended |
+| lessons-final-sketches/*.glsl | Final result of all the lessons in the course. These files are not used as actual sketches |
 | demo.js | The meat of the demo |
 | rendering.js | All the threeJS rendering |
 | utils.js | Functions manage the sketch setup. |
