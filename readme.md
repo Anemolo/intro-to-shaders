@@ -12,7 +12,7 @@
     </a>
 </p>
 
-[![Sketches in the repo](./cover.png)](https://offscreencanvas.com/renders/demo-title)
+[![Sketches in the repo](./cover.jpg)](https://offscreencanvas.com/renders/demo-title)
 
 Sketch management setup for ThreeJS Made for "Intro to shaders" email course.
 
