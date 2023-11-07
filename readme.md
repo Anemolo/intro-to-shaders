@@ -20,7 +20,7 @@ In src/sketches there is one glsl file per lesson, this is where you code.
 
 And in src/lessons-final-sketches there is the final result of all the lessons for reference.
 
-[Course signup!](https://offscreencanvas.com/courses/intro-to-shaders)
+[Follow along with the email course signup!](https://offscreencanvas.com/courses/intro-to-shaders)
 
 If you are interested about learning or exploring shaders, 3d, or creative coding, check out my weekly newsletter. We've got new resources/demos/articles each week. 
 
