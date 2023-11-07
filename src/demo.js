@@ -3,49 +3,59 @@ import { gsap } from "gsap"
 import { Rendering } from "./rendering"
 import * as THREE from "three";
 
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
-import { palettes, sinPalettes } from "./palettes";
-import { getPaletteFromParams, setupControls } from "./utils";
+import {  catchThreeJSErrors,  setupSketchControls } from "./utils";
 
-// Colors 
-let paletteKey = getPaletteFromParams("blue")
+// -- Sketch management trickery
+//
 
-let palette = palettes[paletteKey]
-let sinPalette = sinPalettes[paletteKey]
+const sketches = import.meta.glob('./sketches/*.glsl',{ as: 'raw', eager: true })
+let filenames = Object.keys(sketches).map(path => path.split(/[\\/]/).pop())
 
-let sinUniforms = {
-    c0: new THREE.Uniform(sinPalette.c0),
-    c1: new THREE.Uniform(sinPalette.c1),
-    c2: new THREE.Uniform(sinPalette.c2),
-    c3: new THREE.Uniform(sinPalette.c3),
+let search = new URLSearchParams(window.location.search)
+ let selectedSketch = search.get("filename") == null ? filenames[0] : search.get("filename") 
+
+let filenameEle = document.querySelector("#filename")
+filenameEle.innerText = selectedSketch
+
+setupSketchControls(selectedSketch, filenames)
+
+catchThreeJSErrors()
+
+// -- Actual rendering stuff
+//
+
+let rendering = new Rendering(document.querySelector("#canvas"))
+
+let uTime = new THREE.Uniform(0)
+
+const plane = new THREE.PlaneGeometry()
+const fullscreenMaterial = new THREE.RawShaderMaterial({
+  vertexShader: glsl`
+     precision highp float;
+    attribute vec3 position;
+    attribute vec2 uv;
+
+    varying vec2 vUv;
+    void main(){ 
+      vec3 transformed = position;
+      transformed.xy *= 2.;
+      vUv = uv;
+      gl_Position = vec4(transformed, 1.);
+    }
+`,
+  fragmentShader: sketches["./sketches/"+selectedSketch],
+  uniforms: {
+    uTime: uTime
+  }
+})
+const mesh = new THREE.Mesh(plane, fullscreenMaterial)
+
+rendering.scene.add(mesh)
+
+function tick (time, delta){
+  uTime.value += delta * 0.001;
+  rendering.render()
 }
 
-class Demo {
-  constructor(){
-    this.rendering = new Rendering(document.querySelector("#canvas"), palette)
-    this.controls = new OrbitControls(this.rendering.camera, this.rendering.canvas)
+gsap.ticker.add(tick)
 
-    this.uTime = new THREE.Uniform(0)
-    this.init()
-  }
-  init(){
-    const box = new THREE.BoxGeometry()
-    const mat = new THREE.MeshNormalMaterial()
-    const mesh = new THREE.Mesh(box, mat)
-
-    this.rendering.scene.add(mesh)
-
-    this.addEvents()
-  }
-  addEvents(){
-    gsap.ticker.add(this.tick)
-  }
-  tick = (time, delta)=>{
-    this.uTime.value += delta;
-    this.rendering.render()
-  }
-}
-
-let demo = new Demo()
-
-setupControls(paletteKey)

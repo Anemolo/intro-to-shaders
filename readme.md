@@ -1,4 +1,4 @@
-<h1 align="center">DEMO-TITLE</h1>
+<h1 align="center">Intro To Shaders sketch manager</h1>
 
 <p align="center">
     <a href="https://offscreencanvas.com" target="_blank" rel="noopener noreferrer">
@@ -12,20 +12,15 @@
     </a>
 </p>
 
-[![Demo Image](./logo.png)](https://offscreencanvas.com/renders/demo-title)
+[![Sketches in the repo](./cover.png)](https://offscreencanvas.com/renders/demo-title)
 
-Demo for 
-Description
+Sketch management setup for ThreeJS Made for "Intro to shaders" email course.
 
-More learning resources and similar demos in my newsletter issue. 
+[Course signup!](https://offscreencanvas.com/issues/demo-title)
 
-Article: [Link](https://offscreencanvas.com/issues/demo-title)
+If you are interested about learning or exploring shaders, 3d, or creative coding, check out my weekly newsletter. We've got new resources/demos/articles each week. 
 
-Demo: [Link](https://offscreencanvas.com/renders/demo-title)
-
-New learning resources/demos/articles each week ( or so c: ) in the newsletter. Subscribe!
-
-Next Article: [Grid Tile Patterns](https://offscreencanvas.com/issues/grid-tile-patterns/)
+[Offscreen Canvas](https://offscreencanvas.com/)
 
 ## Installing & Running
 
@@ -34,26 +29,38 @@ yarn install
 yarn dev
 ```
 
+OR
+
+```
+npm install
+npm run dev
+```
+
+1. Create a new sketch in the sketch file. (if not using the existing)
+2. Done. Create your fullscreen fragment shader!
+
 ### Files && comments
 
 | file | Description |
 | --- | --- |
+| sketches/*.glsl | Any file.glsl inside sketches is considered an sketch. Indexes are optional but recomended |
 | demo.js | The meat of the demo |
 | rendering.js | All the threeJS rendering |
-| palettes.js | Offscreen canvas paletters, and default sin palette options. May be changed by the demo |
+| utils.js | Functions manage the sketch setup. |
 
-#### Details
-
-These demos have colors managed already. So, `THREE.ColorManagement.enabled = false` is set by default on the `palettes.js` file 
 
 ### Controls
 
 | keybind | Description |
 | --- | --- |
-| ArrowLeft/ArrowRight | Change between color palettes |
+| ArrowLeft/ArrowRight | Change between sketches |
 
+### Details
+
+- Uses ThreeJS RawShader to avoid incorrect line numbers on errors. So, automatic shader stuff is not added
 
 ## License
+
 This resource can be used freely if integrated or build upon in personal or commercial projects such as websites, web apps and web templates intended for sale. It is not allowed to take the resource "as-is" and sell it, redistribute, re-publish it, or sell "pluginized" versions of it. Free plugins built using this resource should have a visible mention and link to the original work. Always consider the licenses of all included libraries, scripts and images used.
 
 ## Social
